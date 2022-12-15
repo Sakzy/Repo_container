@@ -1,0 +1,29 @@
+version: '3'
+ 
+services:
+  web_tp01:
+    image: praqma/network-multitool:latest
+    container_name: web_tp01
+    networks:
+      - frontend
+
+  app_tp01:
+    image: praqma/network-multitool:latest
+    container_name: app_tp01
+    networks:
+      - frontend
+      - backend
+
+  db_tp01:
+    image: praqma/network-multitool:latest
+    container_name: db_tp01
+    networks:
+      - backend
+networks:
+  frontend:
+    driver: bridge
+    name: frontend
+
+  backend:
+    driver: macvlan
+    name: backend
