@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  app:
+    image: ma_super_app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=Change0n1nstall
+      - DB_NAME=ma_super_app
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=Change0n1nstall
+      - MYSQL_DATABASE=ma_super_app
+      - MYSQL_USER=root
